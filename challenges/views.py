@@ -19,13 +19,13 @@ monthly_challenges = {
 }
 
 
-def capitalize(text):
-    words = text.split(" ")
-    capitalized_words = [
-        word[0].upper() + word[1:] if len(word) > 1 else word[0].upper()
-        for word in words
-    ]
-    return " ".join(capitalized_words)
+# def capitalize(text):
+#     words = text.split(" ")
+#     capitalized_words = [
+#         word[0].upper() + word[1:] if len(word) > 1 else word[0].upper()
+#         for word in words
+#     ]
+#     return " ".join(capitalized_words)
 
 
 # Create your views here.
@@ -53,7 +53,7 @@ def monthly_challenge(request, month):
         res = render_to_string(
             "challenges/challenges.html",
             {
-                "month": capitalize(month),
+                "month": month.capitalize(),
                 "challenge": challenge,
             },
         )
