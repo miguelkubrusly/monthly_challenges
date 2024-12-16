@@ -21,6 +21,17 @@ monthly_challenges = {
 # Create your views here.
 
 
+def index(request):
+  def render_month(month):
+    month_url = reverse("monthly_challenge", args=[month])
+    return f'<a href={month_url}><h3>{month}</h3></a>'
+  months_html = [render_month(month) for month in monthly_challenges.keys()]
+  index_html = ""
+  for html in months_html:
+    index_html += f"{html}\n"
+  return HttpResponse(index_html)
+
+
 def monthly_challenge(request, month):
   month = month.lower()
   try:
