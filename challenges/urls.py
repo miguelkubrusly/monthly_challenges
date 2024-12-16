@@ -2,5 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("<month>/", views.monthly_challenge),
+    path("<int:numeric_month>/", views.month_number_redirect),
+    path("<str:month>/", views.monthly_challenge, name="monthly_challenge"),
 ]
