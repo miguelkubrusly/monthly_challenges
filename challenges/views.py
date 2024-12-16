@@ -1,7 +1,14 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
-from django.template.loader import render_to_string
+from django.http import (
+    HttpResponse,
+    HttpResponseNotFound,
+    HttpResponseRedirect,
+    Http404,
+)
+
+# from django.template.loader import render_to_string
+
 
 monthly_challenges = {
     "january": "End Django course.",
@@ -64,4 +71,4 @@ def month_number_redirect(request, numeric_month):
         month_url = reverse("monthly_challenge", args=[month])
         return HttpResponseRedirect(month_url)
     else:
-        return HttpResponseNotFound("Month not supported.")
+        raise Http404()
