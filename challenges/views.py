@@ -53,7 +53,7 @@ def monthly_challenge(request, month):
         res = render_to_string(
             "challenges/challenges.html",
             {
-                "month": month.capitalize(),
+                "month": month,
                 "challenge": challenge,
             },
         )
