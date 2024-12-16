@@ -39,7 +39,10 @@ def index(request):
 def monthly_challenge(request, month):
   month = month.lower()
   try:
-    return HttpResponse(monthly_challenges[month])
+    return HttpResponse(f"""
+      <p>{monthly_challenges[month]}</p>
+      <a href="/challenges"><small>Back</small></a>
+    """)
   except KeyError:
     return HttpResponseNotFound("Month not supported.")
 
