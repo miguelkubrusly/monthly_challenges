@@ -6,8 +6,12 @@
     <title>{{ month|title }} Challenge</title>
   </head>
   <body>
-    <h1>{{ month|title }} Challenge:</h1>
-    <p>{{ challenge }}</p>
-    <a href="..">Back</a>
+    {% if challenge != None %}
+      <h1>{{ month|title }} Challenge:</h1>
+      <p>{{ challenge }}</p>
+      <a href="..">Back</a>
+    {% else %}
+      <p>No challenge for this month yet</p>
+    {% endif %}
   </body>
 </html>
