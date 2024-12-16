@@ -24,11 +24,15 @@ monthly_challenges = {
 def index(request):
   def render_month(month):
     month_url = reverse("monthly_challenge", args=[month])
-    return f'<a href={month_url}><h3>{month}</h3></a>'
+    return f'<li><a href={month_url}>{month}</a></li>'
+
   months_html = [render_month(month) for month in monthly_challenges.keys()]
-  index_html = ""
+  index_html = "<ol>"
+
   for html in months_html:
-    index_html += f"{html}\n"
+    index_html += f"{html}"
+  index_html += "</ol>"
+
   return HttpResponse(index_html)
 
 
