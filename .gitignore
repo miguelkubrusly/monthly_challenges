@@ -2,5 +2,6 @@ db.sqlite3
 
 monthly_challenges/__pycache__/
 challenges/__pycache__/
+
 monthly_challenges/__pycache__/settings.cpython-312.pyc
 challenges/migrations/__pycache__/__init__.cpython-312.pyc
