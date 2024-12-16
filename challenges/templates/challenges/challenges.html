@@ -8,8 +8,8 @@
   {% if challenge != None %}
     <h1>{{ month|title }} Challenge:</h1>
     <p>{{ challenge }}</p>
-    <a href="..">Back</a>
   {% else %}
     <p>No challenge for this month yet</p>
   {% endif %}
+  {% include 'challenges/include/home_btn.html' %}
 {% endblock %}
