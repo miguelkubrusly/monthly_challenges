@@ -19,38 +19,28 @@ monthly_challenges = {
 }
 
 
-# def capitalize(text):
-#     words = text.split(" ")
-#     capitalized_words = [
-#         word[0].upper() + word[1:] if len(word) > 1 else word[0].upper()
-#         for word in words
-#     ]
-#     return " ".join(capitalized_words)
-
-
 # Create your views here.
 
 
 def index(request):
-    def render_month(month):
-        month_url = reverse("monthly_challenge", args=[month])
-        return f"<li><a href={month_url}>{month}</a></li>"
+    months = list(monthly_challenges.keys())
+    res = render(
+        request,
+        "challenges/index.html",
+        {
+            "months": months,
+        },
+    )
 
-    months_html = [render_month(month) for month in monthly_challenges.keys()]
-    index_html = "<ol>"
-
-    for html in months_html:
-        index_html += f"{html}"
-    index_html += "</ol>"
-
-    return HttpResponse(index_html)
+    return HttpResponse(res)
 
 
 def monthly_challenge(request, month):
     month = month.lower()
     challenge = monthly_challenges[month]
     try:
-        res = render_to_string(
+        res = render(
+            request,
             "challenges/challenges.html",
             {
                 "month": month,
