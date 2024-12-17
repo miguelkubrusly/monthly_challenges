@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block page_title %}
   Monthly Challenges
-{% endblock %}
+{% endblock page_title %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'challenges/challenges.css' %}" />
+{% endblock css_files %}
 
 {% block content %}
-  <h1>Pick a Month</h1>
+{% include 'challenges/include/home_btn.html' %}
   <ol>
     {% for month in months %}
       <li>
@@ -13,5 +18,4 @@
       </li>
     {% endfor %}
   </ol>
-  {% include 'challenges/include/home_btn.html' %}
-{% endblock %}
+{% endblock content %}

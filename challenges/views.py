@@ -48,7 +48,7 @@ def monthly_challenge(request, month):
     try:
         res = render(
             request,
-            "challenges/challenges.html",
+            "challenges/challenge.html",
             {
                 "month": month,
                 "challenge": challenge,
